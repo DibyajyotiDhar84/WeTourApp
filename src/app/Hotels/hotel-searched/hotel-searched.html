@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+<div class="container-fluid mt-5 px-lg-5">
+  <div class="row g-4">
+    <aside class="col-md-3">
+      <div class="filter-card p-4 rounded-4 shadow-sm border sticky-top" style="top: 100px;">
+        <div class="d-flex align-items-center mb-4">
+          <span class="material-symbols-rounded me-2 text-brown">tune</span>
+          <h5 class="fw-bold mb-0 text-brown">Filters</h5>
+        </div>
+        
+        <div class="mb-4">
+          <label class="form-label fw-bold text-muted small text-uppercase">Price Range</label>
+          <input type="range" class="form-range custom-range" min="0" max="10000">
+          <div class="d-flex justify-content-between mt-1 fw-bold text-secondary">
+            <span>₹0</span>
+            <span>₹10,000+</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold text-muted small text-uppercase">Destination</label>
+          <div class="input-group custom-input-group">
+            <span class="input-group-text border-0 bg-light"><span class="material-symbols-rounded fs-5">near_me</span></span>
+            <input type="text" class="form-control border-0 bg-light p-2" placeholder="Where to?" [(ngModel)]="cdest">
+          </div>
+        </div>
+
+        <button class="btn btn-apply-filters w-100 fw-bold py-2 shadow-sm" (click)="applyFilters()">
+          Apply Filters
+        </button>
+      </div>
+    </aside>
+
+    <main class="col-md-9">
+      <div *ngFor="let hotel of hotels()" class="hotel-list-card card mb-4 border-0 overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-4 position-relative">
+            <img [src]="hotel.ImageUrl" class="hotel-img" [alt]="hotel.Name">
+            <div class="rating-badge">
+              <span class="material-symbols-rounded fs-6">star</span> {{hotel.Rating || '4.5'}}
+            </div>
+          </div>
+          
+          <div class="col-md-8 card-body d-flex flex-column justify-content-between p-4 bg-white">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-1">
+                <h3 class="fw-bold hotel-title mb-0">{{ hotel.Name }}</h3>
+                <span class="material-symbols-rounded text-muted favorite-icon">favorite</span>
+              </div>
+              <div class="d-flex align-items-center text-muted mb-3">
+                <span class="material-symbols-rounded fs-6 me-1">location_on</span>
+                <small class="fw-medium">{{ hotel.Location }}</small>
+              </div>
+              
+              <div class="d-flex gap-2 mb-3">
+                <span class="badge amenity-badge">Free WiFi</span>
+                <span class="badge amenity-badge">Pool</span>
+                <span class="badge amenity-badge">Gym</span>
+              </div>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-end pt-3 border-top">
+              <div>
+                <p class="text-muted small mb-0">Starting from</p>
+                <div class="d-flex align-items-baseline">
+                  <span class="h3 fw-bold text-brown mb-0">₹{{hotel.PricePerNight}}</span>
+                  <span class="text-muted ms-1">/night</span>
+                </div>
+              </div>
+              
+              <button class="btn btn-view-details px-4 py-2 fw-bold d-flex align-items-center" [routerLink]="getUrl(hotel.HotelID)">
+                <span class="material-symbols-rounded ms-2">arrow_forward_ios</span>View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

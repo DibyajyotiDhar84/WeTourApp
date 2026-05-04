@@ -1,0 +1,80 @@
+<div class="container-fluid bg-dark text-light min-vh-100 p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold m-0">My Tickets</h2>
+    <div class="d-flex gap-3">
+      <div class="search-box">
+        <span class="material-icons search-icon text-secondary">flight_takeoff</span>
+        <input type="text" class="form-control" placeholder="Search City or Flight..." [ngModel]="searchQuery()"
+          (ngModelChange)="searchQuery.set($event)">
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    @for (ticket of filteredTickets(); track ticket.f_id) {
+    <div class="col-xl-6">
+      <div class="ticket-card card flex-row">
+        <!-- Main Ticket Body -->
+        <div class="ticket-main p-4 flex-grow-1">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="airline-name fw-bold text-info fs-5">{{ ticket.airline }}</span>
+
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center flight-path">
+            <div class="text-start">
+              <h2 class="m-0 display-6 fw-bold">{{ ticket.fromCode }}</h2>
+              <div class="small text-secondary">{{ ticket.fromCity }}</div>
+            </div>
+
+            <div class="flight-icon-divider flex-grow-1 mx-4 d-flex align-items-center">
+              <div class="dot"></div>
+              <div class="line"></div>
+              <span class="material-icons px-2">flight</span>
+              <div class="line"></div>
+              <div class="dot"></div>
+            </div>
+
+            <div class="text-end">
+              <h2 class="m-0 display-6 fw-bold">{{ ticket.toCode }}</h2>
+              <div class="small text-secondary">{{ ticket.toCity }}</div>
+            </div>
+          </div>
+
+          <div class="row mt-4 pt-3 border-top border-secondary">
+            <div class="col-3">
+              <label class="text-secondary small d-block">DEPARTURE TIME</label>
+              <span class="fw-bold">{{ ticket.departureTime | date:'shortTime' }}</span>
+            </div>
+            <div class="col-3">
+              <label class="text-secondary small d-block">DEPARTURE DATE</label>
+              <span class="fw-bold">{{ ticket.departureTime | date:'shortDate' }}</span>
+            </div>
+            <div class="col-3">
+              <label class="text-secondary small d-block">FLIGHT</label>
+              <span class="fw-bold">{{ ticket.flightNumber }}</span>
+            </div>
+            <div class="col-3">
+              <label class="text-secondary small d-block">CLASS</label>
+              <span class="fw-bold">{{ ticket.class }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ticket Stub (Side Section) -->
+        <div class="ticket-stub p-4 text-center border-start border-dark border-dashed">
+          <label class="text-secondary small d-block">GATE</label>
+          <h4 class="fw-bold mb-3">{{ ticket.gate }}</h4>
+
+          <label class="text-secondary small d-block">SEAT</label>
+          <h4 class="fw-bold mb-4">{{ ticket.seat }}</h4>
+
+          <div class="qr-placeholder mx-auto bg-white p-2 rounded">
+            <span class="material-icons text-dark fs-1">qr_code_2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="container mt-4">
+    <div class="row">
+        <aside class="col-lg-3 mb-4">
+            <div class="filter-card p-4 rounded-4 shadow-sm bg-white border-0">
+                <div class="d-flex align-items-center mb-4">
+                    <span class="material-icons-round me-2 text-primary">tune</span>
+                    <h5 class="fw-bold mb-0">Modify Search</h5>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-secondary">Origin</label>
+                    <div class="input-group bg-light rounded-3">
+                        <span class="input-group-text border-0 bg-transparent"><span
+                                class="material-icons-round fs-5">flight_takeoff</span></span>
+                        <input type="text" class="form-control border-0 bg-transparent p-2" [(ngModel)]="flight.from">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-secondary">Destination</label>
+                    <div class="input-group bg-light rounded-3">
+                        <span class="input-group-text border-0 bg-transparent"><span
+                                class="material-icons-round fs-5">flight_land</span></span>
+                        <input type="text" class="form-control border-0 bg-transparent p-2" [(ngModel)]="flight.to">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small fw-bold text-secondary">Departure Date</label>
+                    <div class="input-group bg-light rounded-3 shadow-sm">
+                        <span class="input-group-text border-0 bg-transparent">
+                            <span class="material-icons-round text-primary">calendar_today</span>
+                        </span>
+                        <input type="date" class="form-control border-0 bg-transparent p-2" [(ngModel)]="flight.date"
+                            (change)="applyFilter()" [min]="getCurrentDate()">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary w-100 fw-bold py-2 rounded-3 shadow-sm" (click)="applyFilter()">
+                    Search Flights
+                </button>
+            </div>
+        </aside>
+
+        <main class="col-lg-9">
+            <div *ngIf="flights().length > 0; else noFlights">
+                <div *ngFor="let flight of flights()" class="flight-card card mb-3 border-0 shadow-sm overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="row g-0 align-items-center">
+
+                            <div class="col-md-2 p-4 text-center border-end-md">
+                                <img [src]="getLogo(flight.Airline)" alt="Airline" class="airline-logo mb-2">
+                                <h6 class="small fw-bold text-dark mb-0">{{flight.Airline}}</h6>
+                            </div>
+
+                            <div class="col-md-7 p-4">
+                                <div class="d-flex justify-content-between align-items-center px-lg-4">
+                                    <div class="text-start">
+                                        <h4 class="fw-bold mb-0">{{flight.Departure}}</h4>
+                                        <span class="badge bg-light text-secondary rounded-pill">{{flight.From}}</span>
+                                    </div>
+
+                                    <div class="flex-grow-1 px-4 text-center">
+                                        <div class="duration-text text-muted x-small fw-bold mb-1">{{flight.Duration ||
+                                            '2h 30m'}}</div>
+                                        <div class="flight-path-ui d-flex align-items-center">
+                                            <div class="dot"></div>
+                                            <div class="line flex-grow-1"></div>
+                                            <span class="material-icons-round text-primary mx-2">flight</span>
+                                            <div class="line flex-grow-1"></div>
+                                            <div class="dot"></div>
+                                        </div>
+                                        <div class="text-success x-small fw-bold mt-1">Non-stop</div>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <h4 class="fw-bold mb-0">{{flight.Arrival}}</h4>
+                                        <span class="badge bg-light text-secondary rounded-pill">{{flight.To}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 p-4 bg-light-alt text-center text-md-end border-start-md">
+                                <p class="text-muted small mb-1">Price per adult</p>
+                                <h3 class="fw-bold text-primary mb-3">₹{{flight.BasePrice}}</h3>
+                                <a class="btn btn-primary w-100 rounded-pill fw-bold"
+                                    [routerLink]="getUrl(flight.FlightID)">
+                                    Book Now
+                            </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ng-template #noFlights>
+                <div class="text-center p-5 bg-white rounded-4 shadow-sm border mt-2">
+                    <span class="material-icons-round fs-1 text-muted mb-3">search_off</span>
+                    <h4 class="text-dark fw-bold">No flights found</h4>
+                    <p class="text-secondary">Adjust your filters or destination to see more results.</p>
+                </div>
+            </ng-template>
+        </main>
+    </div>
+</div>

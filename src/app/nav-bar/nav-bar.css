@@ -1,0 +1,191 @@
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-nav {
+  padding: 0.8rem 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  z-index: 2000;
+}
+
+
+/* Logo Styling */
+.logo-container {
+  background-color: #fdf8f3; /* Very light cream background */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Rounded square look */
+  transition: all 0.3s ease;
+}
+
+.logo-icon {
+  color: #d4a373;
+  font-size: 28px !important;
+}
+
+.brand-logo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(74, 63, 53, 0.12));
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hover effect for the brand */
+.navbar-brand:hover .logo-container {
+  
+  transform: rotate(-10deg); /* Playful tilt */
+}
+
+.navbar-brand:hover .logo-icon {
+  color: #ffffff;
+}
+
+/* If you use an actual image instead */
+.brand-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Ensure the brand text stays centered with the logo */
+.brand-text-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+/* Brand Styles */
+.brand-cursive {
+  font-family: 'Dancing Script', cursive !important;
+  color: #d4a373;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.brand-text {
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 1.5rem;
+  margin-left: 2px;
+  color: #333;
+}
+
+/* Nav Links */
+.custom-nav-link {
+  position: relative;
+  font-weight: 500;
+  color: #555 !important;
+  padding: 0.5rem 1.2rem !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+
+
+.icon-sm {
+  font-size: 18px !important;
+  transition: transform 0.3s ease;
+}
+
+.custom-nav-link:hover .icon-sm {
+  transform: translateY(-2px);
+}
+
+/* The Underline Animation */
+.custom-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background-color: #d4a373;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transform-origin: center;
+}
+
+.custom-nav-link:hover::after,
+.custom-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.custom-nav-link:hover,
+.custom-nav-link.active {
+  color: #d4a373 !important;
+}
+
+/* Professional Button */
+.btn-login-gradient {
+  background-color: #d4a373;
+  color: white;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 10px 28px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
+}
+
+.btn-login-gradient:hover {
+  background-color: #bc8a5f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 163, 115, 0.3);
+  color: white;
+}
+
+.category-btn {
+  border: none;
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+/* Styling for the Material Icon Avatar */
+.avatar-icon {
+  font-size: 40px; /* Size of the avatar */
+  color: #555;
+  transition: color 0.2s ease-in-out;
+  vertical-align: middle;
+}
+
+.avatar-icon:hover {
+  color: #0d6efd; /* Primary color on hover */
+  cursor: pointer;
+}
+
+/* Remove the Bootstrap dropdown arrow */
+.no-caret::after {
+  display: none !important;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1.2rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding: 1rem 0;
+  }
+  .custom-nav-link::after {
+    display: none; /* Hide underline on mobile for cleaner list */
+  }
+  .custom-nav-link {
+    padding: 0.8rem 0 !important;
+    border-bottom: 1px solid #f8f9fa;
+  }
+}

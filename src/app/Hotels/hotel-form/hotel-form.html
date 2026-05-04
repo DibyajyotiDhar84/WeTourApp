@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<div class="container-fluid hero-section d-flex align-items-start justify-content-center pt-5">
+  <div class="container">
+    
+    <div class="text-center mb-4">
+      <h1 class="brand-logo text-white shadow-text">
+        <span class="brand-cursive">We</span>Tour
+      </h1>
+    </div>
+
+    <div class="search-card p-4 rounded-5 shadow-green-glow bg-white">
+      
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <button class="category-btn active">
+          <span class="material-symbols-rounded">hotel</span> Hotels
+        </button>
+        <!-- <button class="category-btn">
+          <span class="material-symbols-rounded">flight</span> Flights
+        </button>
+        <button class="category-btn">
+          <span class="material-symbols-rounded">inventory_2</span> Packages
+        </button> -->
+      </div>
+
+      <div class="row g-2">
+        <div class="col-md-3">
+          <div class="form-floating custom-input-group">
+            <span class="input-icon material-symbols-rounded">location_on</span>
+            <input type="text" class="form-control border-0 bg-light ps-5" id="dest" placeholder="City" [(ngModel)]="searchData.destination">
+            <label for="dest" class="ms-4 text-muted inputlabel">Destination</label>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-floating custom-input-group">
+            <span class="input-icon material-symbols-rounded">group</span>
+            <input type="number" class="form-control border-0 bg-light ps-5" id="ppl" placeholder="People" [(ngModel)]="searchData.people">
+            <label for="ppl" class="ms-4 text-muted inputlabel">People</label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-floating custom-input-group">
+            <span class="input-icon material-symbols-rounded">calendar_month</span>
+            <input type="date" class="form-control border-0 bg-light ps-5" id="start" [(ngModel)]="searchData.start" [min]="getCurrentDate()">
+            <label for="start" class="ms-4 text-muted inputlabel">Check-in</label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-floating custom-input-group">
+            <span class="input-icon material-symbols-rounded">logout</span>
+            <input type="date" class="form-control border-0 bg-light ps-5" id="end" [(ngModel)]="searchData.end" [min]="getCurrentDate()">
+            <label for="end" class="ms-4 text-muted inputlabel">Check-out</label>
+          </div>
+        </div>
+
+        <div class="col-md-1 d-flex align-items-stretch">
+          <button class="btn btn-search-pill w-100 shadow-sm d-flex align-items-center justify-content-center" (click)="onSearch()">
+            <span class="material-symbols-rounded">search</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+.login-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.brand-text {
+  color: #333;
+  letter-spacing: -1px;
+}
+
+.brand-logo {
+  /* Adjust these values to your preference */
+  width: 120px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Optional: To make the circular container smaller too */
+.logo-wrapper {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem; /* Centers and adds spacing below */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-color {
+  color: #d4a373;
+}
+
+/* Custom Inputs */
+.custom-input-group {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #d4a373;
+}
+
+.input-group-text {
+  border-color: #dee2e6;
+}
+
+.icon-sm {
+  font-size: 20px !important;
+}
+
+/* Captcha Styling */
+.captcha-box {
+  background: #f8f9fa;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+}
+
+.captcha-text {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 5px;
+  font-size: 1.2rem;
+  color: #d4a373;
+  user-select: none;
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #d4a373;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #bc8a5f;
+  transform: translateY(-1px);
+}
+
+.btn-login:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

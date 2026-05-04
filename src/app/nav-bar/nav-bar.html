@@ -1,0 +1,89 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Dancing+Script:wght@700&display=swap"
+  rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top main-nav shadow-lg">
+  <div class="w-100 d-flex px-3">
+
+    <a class="navbar-brand brand-logo d-flex align-items-center" [routerLink]="['/']">
+      <div class="logo-container me-2">
+        <div class="logo-wrapper">
+          <img src="./assets/weTourLogo.png" alt="WeTour Logo" class="brand-logo">
+        </div>
+      </div>
+
+      <div class="brand-text-wrapper shadow-text">
+        <span class="brand-cursive ">We</span><span class="brand-text  shadow-text">Tour</span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+      <span class="material-icons-round icon-sm">menu</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto align-items-center">
+
+        <a class="nav-link custom-nav-link  " [routerLink]="getUrl('')" routerLinkActive="active-link">
+          <span class="material-icons-round icon-sm">bed</span>
+          <span>Hotels</span>
+        </a>
+
+        <a class="nav-link custom-nav-link" [routerLink]="getUrl('flights')" routerLinkActive="active">
+          <span class="material-icons-round icon-sm">flight</span>
+          <span>Flights</span>
+        </a>
+
+        <a class="nav-link custom-nav-link" [routerLink]="getUrl('tourPackages')" routerLinkActive="active">
+          <span class="material-icons-round icon-sm">hiking</span>
+          <span>Packages</span>
+        </a>
+
+        <div class="ms-lg-4 mt-3 mt-lg-0">
+          @if(!isLoggedIn()){
+          <button class="btn btn-login-gradient px-4" [routerLink]="['/login']">Login</button>
+          } @else {
+          <div class="dropdown custom-profile-dropdown">
+            <button class="btn p-0 border-0 dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="material-icons-round icon">account_circle</span>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2" >
+              <li>
+                <a class="dropdown-item d-flex align-items-center" [routerLink]="['/landingDash/traveller/profile']">
+                  <span class="material-icons-round icon-sm">manage_accounts</span> My Profile
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" [routerLink]="['/landingDash/traveller/myBookings']">
+                  <span class="material-icons-round icon-sm">confirmation_number</span> My Bookings
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" [routerLink]="['/landingDash/traveller/myTickets']">
+                  <span class="material-icons-round icon-sm">flight</span> My Tickets
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" [routerLink]="['/landingDash/traveller/myCoupons']">
+                  <span class="material-icons-round icon-sm">sell</span> My Coupons
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <button class="dropdown-item d-flex align-items-center text-danger" (click)="onLogout()">
+                  <span class="material-icons-round icon-sm">logout</span> Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,181 @@
+/* --- Root Variables & Theme --- */
+:root {
+  --primary: #6366f1; /* Indigo from your dashboard */
+  --primary-dark: #4f46e5;
+  --success: #10b981;
+  --warning-gold: #d87d00;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+}
+
+/* --- Container & Cards --- */
+.detail-card, .passenger-card, .summary-card {
+  border-radius: 20px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail-card {
+  background: #ffffff;
+}
+
+.logo-container {
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Flight Timeline UI --- */
+.timeline-container {
+  padding: 0 10px;
+}
+
+.flight-line {
+  height: 2px;
+  background: #cbd5e1;
+  position: relative;
+  margin: 20px 0;
+}
+
+.flight-line::before, .flight-line::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.flight-line::before { left: 0; }
+.flight-line::after { right: 0; }
+
+.flight-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: #ffffff;
+  color: var(--primary);
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+/* --- Fare Selection Cards --- */
+.fare-card {
+  background: #ffffff;
+  border: 2px solid #f1f5f9;
+  border-radius: 16px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.fare-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-4px);
+}
+
+.fare-card.selected {
+  border-color: var(--primary) !important;
+  background: #f5f3ff;
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+}
+
+.check-icon {
+  color: var(--primary);
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Passenger Form Styles --- */
+.passenger-card {
+  border: 1px solid #f1f5f9;
+}
+
+.border-dashed {
+  border: 2px dashed #cbd5e1 !important;
+  background-color: var(--bg-light);
+  color: var(--primary);
+}
+
+.border-dashed:hover {
+  border-color: var(--primary) !important;
+  background-color: #f5f3ff;
+}
+
+.input-group-text {
+  color: #64748b;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  background-color: #ffffff !important;
+  border: 1px solid var(--primary) !important;
+}
+
+/* --- Summary Sidebar --- */
+.summary-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.total-section {
+  background: var(--bg-light);
+  border: 1px dashed #cbd5e1;
+}
+
+.btn-primary-gradient {
+  background-color: chocolate;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-primary-gradient:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary-gradient:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+/* --- Utility Classes --- */
+.bg-soft-primary {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.animate-slide-in {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .sticky-top {
+    position: static !important;
+  }
+}

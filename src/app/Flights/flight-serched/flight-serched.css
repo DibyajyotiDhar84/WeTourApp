@@ -1,0 +1,76 @@
+:root {
+  --primary-color: #6366f1; /* Modern Indigo */
+  --bg-color: #f8fafc;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.filter-card {
+  position: sticky;
+  top: 90px;
+}
+
+.flight-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px !important;
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+}
+
+.airline-logo {
+  width: 50px; 
+  height: 50px; 
+  object-fit: contain;
+}
+
+.bg-light-alt {
+  background-color: #fdfdfd;
+}
+
+.flight-path-ui .line {
+  height: 2px;
+  background: #e2e8f0;
+}
+
+.flight-path-ui .dot {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1;
+  border-radius: 50%;
+}
+
+.x-small {
+  font-size: 0.75rem;
+}
+
+.border-end-md {
+  border-right: 1px solid #f1f5f9;
+}
+
+.border-start-md {
+  border-left: 1px solid #f1f5f9;
+}
+
+.material-icons-round {
+  vertical-align: middle;
+}
+
+.btn-primary {
+  
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4f46e5;
+}
+
+@media (max-width: 768px) {
+  .border-end-md, .border-start-md {
+    border: none !important;
+  }
+}

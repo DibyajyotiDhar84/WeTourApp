@@ -1,0 +1,93 @@
+.booking-container {
+  font-family: 'Noto Serif', serif;
+}
+
+.title-font {
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  color: #333;
+}
+
+.accent-font {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #7b61ff;
+}
+
+/* Search & Filters */
+.search-box {
+  width: 300px;
+}
+
+.search-box .form-control:focus {
+  box-shadow: none;
+  border-color: #dee2e6;
+}
+
+.filter-dropdown {
+  width: 180px;
+  border-radius: 8px;
+}
+
+/* Table Card */
+.table-card {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: #fcfbff;
+  color: #7b61ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 18px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.table tbody td {
+  padding: 18px;
+  vertical-align: middle;
+}
+
+/* Service Type Pills */
+.type-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.type-pill.flight { background: #e3f2fd; color: #1976d2; }
+.type-pill.hotel { background: #f3e5f5; color: #7b1fa2; }
+.type-pill.tour { background: #e8f5e9; color: #388e3c; }
+
+/* Status Badges */
+.status-badge {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.confirmed { background: #c8e6c9; color: #2e7d32; }
+.status-badge.pending { background: #fff9c4; color: #f9a825; }
+.status-badge.cancelled { background: #ffcdd2; color: #c62828; }
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  transition: transform 0.2s;
+}
+
+.btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.material-icons-round {
+  font-size: 20px;
+}

@@ -1,0 +1,152 @@
+.register-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2073');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.register-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.brand-text {
+  color: #2d3436;
+  letter-spacing: -1px;
+}
+
+.logo-icon {
+  font-size: 50px !important;
+  color: #d4a373;
+}
+
+.brand-color {
+  color: #d4a373;
+}
+
+.custom-input-group {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.custom-input {
+  border-radius: 12px;
+  padding: 10px 15px;
+  border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #d4a373;
+}
+
+.btn-register {
+  background-color: #d4a373;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover:not(:disabled) {
+  background-color: #bc8a5f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+}
+
+.btn-register:disabled {
+  background-color: #cbd5e0;
+}
+
+/* Invalid state for password mismatch */
+.is-invalid {
+  border-color: #e53e3e !important;
+}
+
+
+
+.is-invalid, .border-danger {
+  border-color: #e53e3e !important;
+}
+
+/* Custom Toast Styling */
+.custom-toast {
+  position: fixed;
+  top: 20px;
+  right: -400px;
+  background: #2d3436;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1050;
+  border-left: 5px solid #d4a373;
+}
+
+.custom-toast.show {
+  right: 20px;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-content p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.toast-content .material-icons-round {
+  color: #d4a373;
+}
+
+/* Input group error styling */
+.custom-input-group.border-danger .input-group-text {
+  border-color: #e53e3e !important;
+}
+
+
+/* Error message text style */
+.error-msg {
+  color: #e53e3e;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Border styling for input groups when invalid */
+.is-invalid-group {
+  border-color: #e53e3e !important;
+}
+
+.is-invalid-group .input-group-text {
+  border-color: #e53e3e !important;
+  color: #e53e3e !important;
+}
+
+.is-invalid-group .form-control {
+  border-color: #e53e3e !important;
+}
+
+/* Input error state */
+.form-control.is-invalid {
+  border-color: #e53e3e !important;
+  background-image: none; /* Removes the default bootstrap exclamation icon if not wanted */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,93 @@
+<div class="container-fluid bg-dark text-light min-vh-100 p-4">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <div>
+      <h2 class="fw-bold mb-0 text-white">All Bookings</h2>
+      <p class="text-secondary small">Manage your upcoming and past weTour journeys</p>
+    </div>
+    
+    <div class="d-flex gap-3">
+      <div class="search-box">
+        <span class="material-icons search-icon">search</span>
+        <input type="text" class="form-control " placeholder="Search ID or Hotel..." 
+               [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters Row -->
+  <div class="d-flex gap-2 mb-4 overflow-auto pb-2">
+    <button class="btn btn-filter" [class.active]="filterStatus() === 'All'" (click)="updateFilter('All')">All</button>
+    <button class="btn btn-filter" [class.active]="filterStatus() === 'Confirmed'" (click)="updateFilter('Confirmed')">Upcoming</button>
+    <button class="btn btn-filter" [class.active]="filterStatus() === 'Past'" (click)="updateFilter('Past')">Previous</button>
+    <button class="btn btn-filter" [class.active]="filterStatus() === 'Cancelled'" (click)="updateFilter('Cancelled')">Cancelled</button>
+  </div>
+
+  <!-- Bookings Table -->
+  <div class="card custom-card overflow-hidden">
+    <div class="table-responsive">
+      <table class="table table-dark table-hover mb-0 custom-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Hotel / Room</th>
+            <th>Check-In/Out</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (booking of filteredBookings(); track booking.h_id) {
+            <tr>
+              <td class="align-middle fw-bold text-info">{{ booking.h_id }}</td>
+              <td class="align-middle">
+                <div class="d-flex align-items-center">
+                  <div class="hotel-thumb me-3">
+                    <span class="material-icons">hotel</span>
+                  </div>
+                  <div>
+                    <div class="fw-bold">{{ booking.hotelName }}</div>
+                    <div class="small text-secondary">{{ booking.roomType }}</div>
+                  </div>
+                </div>
+              </td>
+              <td class="align-middle">
+                <div class="small">{{ booking.checkIn | date:'mediumDate' }}</div>
+                <div class="small text-secondary">to {{ booking.checkOut | date:'mediumDate' }}</div>
+              </td>
+              <td class="align-middle fw-bold">${{ booking.price }}</td>
+              <td class="align-middle">
+                <span class="badge" [ngClass]="{
+                  'bg-success-subtle text-success': booking.status === 'Confirmed',
+                  'bg-warning-subtle text-warning': booking.status === 'Pending',
+                  'bg-danger-subtle text-danger': booking.status === 'Cancelled',
+                  'bg-secondary-subtle text-secondary': booking.status === 'Past'
+                }">
+                  {{ booking.status }}
+                </span>
+              </td>
+              <td class="align-middle text-end">
+                <button class="btn btn-icon" title="View Details">
+                  <span class="material-icons">visibility</span>
+                </button>
+                @if (booking.status === 'Confirmed' || booking.status === 'Pending') {
+                  <button class="btn btn-icon text-danger" title="Cancel Booking">
+                    <span class="material-icons">cancel</span>
+                  </button>
+                }
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="6" class="text-center py-5 text-secondary">
+                <span class="material-icons d-block mb-2" style="font-size: 48px;">event_busy</span>
+                No bookings found for this category.
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

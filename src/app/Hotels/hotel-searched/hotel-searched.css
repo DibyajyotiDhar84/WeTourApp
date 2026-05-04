@@ -1,0 +1,109 @@
+/* Color Palette */
+:root {
+  --brand-cream: #d4a373;
+  --brand-brown: #6d4c41;
+  --brand-orange: #d87d00;
+  --bg-light: #f8f9fa;
+}
+
+.text-brown { color: var(--brand-brown); }
+
+/* Sidebar Filter Card */
+.filter-card {
+  background: white;
+  border: 1px solid #eee !important;
+  transition: all 0.3s ease;
+}
+
+.custom-input-group .form-control:focus {
+  box-shadow: none;
+  background-color: #f0f0f0 !important;
+}
+
+.btn-apply-filters {
+  background-color: rgb(80, 78, 236);
+  color: white;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+}
+
+.btn-apply-filters:hover {
+  color: white;
+  opacity: 0.9;
+}
+
+/* Hotel Card Styling */
+.hotel-list-card {
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-list-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+}
+
+.hotel-img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hotel-list-card:hover .hotel-img {
+  transform: scale(1.08);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.amenity-badge {
+  background: #f0f0f0;
+  color: #666;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.favorite-icon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.favorite-icon:hover { color: #e63946; }
+
+/* View Details Button */
+.btn-view-details {
+  background-color: var(--brand-orange);
+  color: rgb(234, 68, 68);
+  border-radius: 14px;
+  font-size: 0.95rem;
+}
+
+.btn-view-details span {
+  font-size: 14px;
+}
+
+/* Login Pill */
+.btn-login-pill {
+  background: #333;
+  color: white;
+  border-radius: 50px;
+  padding: 8px 25px;
+  font-weight: 600;
+}
+
+/* Range Thumb */
+.custom-range::-webkit-slider-thumb { background: var(--brand-brown); }

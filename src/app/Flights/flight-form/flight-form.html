@@ -1,0 +1,122 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<div class="container  hero-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-11">
+            <div class="search-card card border-0 shadow-lg p-4 p-md-5">
+
+                <div class="d-flex justify-content-center gap-3 mb-4">
+
+                    <button class="category-btn active">
+                        <span class="material-icons">flight</span> Flights
+                    </button>
+
+                </div>
+
+
+
+                <div class="d-flex align-items-center mb-4">
+                    <span class="material-icons text-orange me-2 fs-1">flight_takeoff</span>
+                    <h2 class="fw-bold mb-0" style="color: #4a332d;">Where to next?</h2>
+                </div>
+
+                <form [formGroup]="flightForm" (submit)="onSearchFlights()">
+                    <div class="row g-0 search-bar-container rounded-4 overflow-hidden shadow-sm border">
+
+                        <div class="col-md-3 search-field border-end">
+                            <div class="p-3">
+                                <label class="d-flex align-items-center text-muted small fw-bold mb-1">
+                                    <span class="material-icons fs-6 me-1">location_on</span>FROM
+                                </label>
+                                <input type="text" formControlName="from" class="form-control border-0 p-0 fw-bold fs-5"
+                                    placeholder="City or Airport">
+
+                                    @if(flightForm.get('from')?.touched && flightForm.get('from')?.invalid){
+          <div class="text-danger error-text">please provide origin</div>
+        }
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 search-field border-end">
+                            <div class="p-3">
+                                <label class="d-flex align-items-center text-muted small fw-bold mb-1">
+                                    <span class="material-icons fs-6 me-1">flight_land</span> TO
+                                </label>
+                                <input type="text" formControlName="to" class="form-control border-0 p-0 fw-bold fs-5"
+                                    placeholder="Destination">
+
+                                    @if(flightForm.get('to')?.touched && flightForm.get('to')?.invalid){
+          <div class="text-danger error-text">please provide Destination</div>
+        }
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 search-field border-end">
+                            <div class="p-3">
+                                <label class="d-flex align-items-center text-muted small fw-bold mb-1">
+                                    <span class="material-icons fs-6 me-1">calendar_month</span> DEPARTURE
+                                </label>
+                                <input type="date" formControlName="date"
+                                    class="form-control border-0 p-0 fw-bold fs-5" [min]="getCurrentDate()">
+
+                                    @if(flightForm.get('date')?.touched && flightForm.get('date')?.invalid){
+          <div class="text-danger error-text">Select a date</div>
+        }
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 search-field">
+                            <div class="p-3">
+                                <label class="d-flex align-items-center text-muted small fw-bold mb-1">
+                                    <span class="material-icons fs-6 me-1">group</span> PASSENGERS
+                                </label>
+                                <input type="number" formControlName="people"
+                                    class="form-control border-0 p-0 fw-bold fs-5">
+
+                                    @if(flightForm.get('people')?.touched && flightForm.get('people')?.invalid){
+          <div class="text-danger error-text">Enter 1-9 people</div>
+        }
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="mt-4 text-center">
+                        <button type="submit"
+                            class="btn btn-search-main px-5 py-3 shadow d-flex align-items-center justify-content-center mx-auto">
+                            Explore Available Flights
+                            <span class="material-icons ms-2">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row mt-5 g-4 text-center">
+                <div class="col-md-4">
+                    <div class="feature-icon bg-cream-light mb-3">
+                        <span class="material-icons text-white">shield_check</span>
+                    </div>
+                    <h6 class="fw-bold">Safe Travel</h6>
+                    <p class=" text-muted small ">Verified airlines and safe bookings.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon bg-cream-light mb-3">
+                        <span class="material-icons text-white">loyalty</span>
+                    </div>
+                    <h6 class="fw-bold">Best Prices</h6>
+                    <p class="text-muted small">No hidden fees, just pure transparency.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon bg-cream-light mb-3">
+                        <span class="material-icons text-white">support_agent</span>
+                    </div>
+                    <h6 class="fw-bold">24/7 Support</h6>
+                    <p class="text-muted small">We are here to help you anywhere, anytime.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

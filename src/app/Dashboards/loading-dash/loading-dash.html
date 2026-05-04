@@ -1,0 +1,24 @@
+<div class="loading-overlay">
+      <div class="animation-container">
+        <!-- The static image with CSS animations applied -->
+        <!-- <img src="./assets/traveller.jpg" alt="Traveling..." class="traveler-img" /> -->
+         <ng-lottie 
+          [options]="options" 
+          width="500px" 
+          height="500px" 
+          (animationCreated)="animationCreated($event)">
+        </ng-lottie>
+      </div>
+      
+      <div class="loading-text">
+        <h3 class="fw-bold" style="font-family: 'Victor Mono', monospace;">Packing your bags...</h3>
+      </div>
+      
+      <!-- Bootstrap-style progress bar -->
+      <div class="progress mt-3" style="width: 300px; height: 8px;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" 
+             role="progressbar" 
+             style="width: 100%">
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,74 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+<div class="admin-container bg-light">
+  
+  <aside class="sidebar shadow-sm">
+    <div class="sidebar-brand d-flex align-items-center mb-4">
+      <div class="logo-box me-2">
+        <span class="material-icons-round logo-icon">explore</span>
+      </div>
+      <span class="brand-cursive">We</span><span class="brand-text">Tour</span>
+    </div>
+
+    <ul class="nav flex-column sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link active"routerLink="stats" 
+       routerLinkActive="active-link" 
+       [routerLinkActiveOptions]="{ exact: true }">
+          <span class="material-icons-round">dashboard</span> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="bookings" routerLinkActive="active-link">
+          <span class="material-icons-round">book_online</span> Bookings
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="hotels" routerLinkActive="active-link">
+          <span class="material-icons-round">bed</span> Hotels
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="flights" routerLinkActive="active-link">
+          <span class="material-icons-round">flight</span> Flights
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="tourpackages" routerLinkActive="active-link">
+          <span class="material-icons-round">inventory_2</span> Tour Packages
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="customers" routerLinkActive="active-link">
+          <span class="material-icons-round">people</span> Customers
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="transactions" routerLinkActive="active-link">
+          <span class="material-icons-round">account_balance_wallet</span> Transactions
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile" routerLinkActive="active-link">
+          <span class="material-icons-round">person</span> Profile
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer mt-auto">
+      <button class="nav-link text-danger" (click)="onLogout()">
+        <span class="material-icons-round" >logout</span> Logout
+      </button>
+    </div>
+  </aside>
+
+
+ <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+ 

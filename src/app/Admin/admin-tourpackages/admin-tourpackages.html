@@ -1,0 +1,78 @@
+<div class="packages-wrapper p-4">
+  <div class="row align-items-center mb-5">
+    <div class="col-lg-7">
+      <h2 class="display-6 fw-bold mb-0">Tour Experiences</h2>
+      <p class="cursive-accent">Manage the world's most requested adventures</p>
+    </div>
+    <div class="col-lg-5">
+      <div class="input-group search-bar shadow-sm">
+        <span class="input-group-text bg-white border-0"><span class="material-icons-round">search</span></span>
+        <input type="text" class="form-control border-0" placeholder="Search title or travel agency..." 
+               [(ngModel)]="searchVal" (input)="onSearch()">
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-xl-4" *ngFor="let pkg of filteredPackages">
+      <div class="package-card card border-0 shadow-sm overflow-hidden">
+        <div class="img-header">
+          <img [src]="pkg.image" [alt]="pkg.title">
+          <div class="badge-overlay">
+            <span class="badge" [ngClass]="{
+              'bg-danger': pkg.status === 'Sold Out',
+              'bg-warning text-dark': pkg.status === 'Selling Fast',
+              'bg-info': pkg.status === 'Upcoming'
+            }">{{ pkg.status }}</span>
+          </div>
+          <div class="price-chip">${{ pkg.price }}</div>
+        </div>
+
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-1">{{ pkg.title }}</h5>
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="material-icons-round text-primary small">verified</span>
+            <span class="text-muted small">By {{ pkg.owner }}</span>
+          </div>
+
+          <div class="sales-tracker mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="small fw-bold">Booking Status</span>
+              <span class="small text-muted">{{ pkg.sales }}/{{ pkg.limit }} Booked</span>
+            </div>
+            <div class="progress" style="height: 6px;">
+              <div class="progress-bar" role="progressbar" 
+                   [style.width.%]="getCompletionRate(pkg.sales, pkg.limit)"
+                   [ngClass]="getCompletionRate(pkg.sales, pkg.limit) > 80 ? 'bg-danger' : 'bg-primary'">
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-2 mb-4">
+            <div class="col-6">
+              <div class="detail-box">
+                <span class="material-icons-round">handshake</span>
+                <div><label>Sponsor</label><h6>{{ pkg.sponsor }}</h6></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="detail-box">
+                <span class="material-icons-round">event</span>
+                <div><label>Departs</label><h6>{{ pkg.date | date:'shortDate' }}</h6></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary flex-grow-1 d-flex align-items-center justify-content-center">
+              <span class="material-icons-round me-2">analytics</span> Insight
+            </button>
+            <button class="btn btn-outline-dark">
+              <span class="material-icons-round">settings</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

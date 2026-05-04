@@ -1,0 +1,73 @@
+.ticket-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Boarding Pass Flight Path Graphic */
+.flight-icon-divider .line {
+  height: 1px;
+  background: #e54d4d;
+  flex-grow: 1;
+}
+
+.flight-icon-divider .dot {
+  width: 6px;
+  height: 6px;
+  background: #17a2b8;
+  border-radius: 50%;
+}
+
+.flight-icon-divider span {
+  color: #17a2b8;
+  transform: rotate(90deg);
+}
+
+/* Ticket Stub Separation */
+.ticket-stub {
+  background: #c2c1c1;
+  min-width: 140px;
+  border-left: 2px dashed #1a1a1a !important;
+}
+
+.search-box {
+  position: relative;
+  min-width: 250px;
+  color: black;
+  
+}
+
+/* Placeholder Styling */
+.search-box .form-control {
+  padding-left: 40px;
+  background: #d2d1d1;
+  border: 1px solid #444;
+  color: rgb(15, 15, 15);
+}
+
+.search-box .form-control::placeholder {
+  color: rgb(8, 8, 8);
+  opacity: 0.8;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #131212;
+}
+
+.qr-placeholder {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Visual Polishes */
+.border-dashed { border-style: dashed !important; }
+.text-info { color: #17a2b8 !important; }

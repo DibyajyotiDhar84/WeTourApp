@@ -1,0 +1,69 @@
+.flights-container { font-family: 'Noto Serif', serif; }
+.title-text { font-weight: 700; color: #1a2a6c; margin: 0; }
+.subtitle-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #7b61ff; }
+
+.btn-pill {
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  color: #666;
+}
+.btn-pill.active { background: #7b61ff; color: white; }
+
+.flight-card {
+  border-radius: 15px;
+  transition: transform 0.2s;
+  border-left: 6px solid #ccc;
+}
+.flight-card:hover { transform: scale(1.01); }
+
+.time { font-size: 1.2rem; font-weight: 700; }
+.airport-code { font-size: 0.9rem; font-weight: 800; letter-spacing: 1px; }
+
+.flight-path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dotted-line {
+  height: 2px;
+  width: 100%;
+  border-bottom: 2px dashed #ddd;
+  position: absolute;
+  z-index: 1;
+}
+.flight-icon {
+  background: white;
+  z-index: 2;
+  color: #7b61ff;
+  padding: 0 10px;
+}
+
+.status-flying { border-left-color: #00d2ff; }
+.status-flying .status-indicator { color: #00d2ff; }
+.status-flying .dot { background: #00d2ff; box-shadow: 0 0 8px #00d2ff; animation: blink 1.5s infinite; }
+
+.status-landed { border-left-color: #28a745; }
+.status-cancelled { border-left-color: #dc3545; opacity: 0.7; }
+.status-delayed { border-left-color: #ffc107; }
+
+.status-indicator {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.btn-icon { color: #ccc; padding: 0; }
+.btn-icon:hover { color: #7b61ff; }

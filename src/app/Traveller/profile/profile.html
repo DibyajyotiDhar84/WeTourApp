@@ -1,0 +1,90 @@
+<div class="container-fluid bg-dark text-light min-vh-100 p-4">
+  <h2 class="title-font">Profile</h2>
+
+  <div class="row g-4">
+    <!-- Left Column: ID Card (inspired by image_5143d1.jpg) -->
+<div class="col-md-4">
+  <div class="card custom-card p-4 text-center">
+    <!-- Avatar Section with Overlay Button -->
+    <div class="avatar-wrapper mb-3 position-relative d-inline-block mx-auto">
+      <img [src]="currentAvatar()" 
+           class="rounded-circle border border-secondary shadow-sm" 
+           alt="Avatar" 
+           width="150"
+           height="150"
+           style="object-fit: cover;">
+      
+        <button (click)="shuffleAvatar()" 
+                class="btn btn-info btn-sm position-absolute bottom-0 end-0 rounded-circle shuffle-btn shadow"
+                title="Shuffle Avatar">
+          <span class="material-icons">cached</span>
+        </button>
+    </div>
+
+    <!-- User Information -->
+    <h3>{{ user()?.name }}</h3> <!-- Note: matches UserProfile interface -->
+    <p class="text-secondary">{{ user()?.role }}</p>
+    
+    <!-- Edit Toggle Button -->
+    <button class="btn btn-outline-info w-100 mt-3" (click)="toggleEdit()">
+      <span class="material-icons align-middle me-1">
+        {{ isEditing() ? 'close' : 'edit' }}
+      </span> 
+      {{ isEditing() ? 'Cancel' : 'Edit Profile' }}
+    </button>
+  </div>
+</div>
+
+    <!-- Right Column: Information Fields -->
+    <div class="col-md-8">
+      <div class="card custom-card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h5 class="m-0 text-secondary">Personal Information</h5>
+          @if (isEditing()) {
+            <button class="btn btn-success btn-sm" (click)="saveProfile()">
+              <span class="material-icons align-middle">save</span> Save
+            </button>
+          }
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+          <!-- Field: Full Name -->
+          <div class="col">
+            <label class="text-muted small">Full Name</label>
+            @if (isEditing()) {
+              <input type="text" class="form-control bg-transparent text-white border-secondary" [(ngModel)]="user()!.name">
+            } @else {
+              <p class="h6">{{ user()?.name }}</p>
+            }
+          </div>
+
+          <!-- Field: Phone -->
+          <div class="col">
+            <label class="text-muted small">Phone</label>
+            @if (isEditing()) {
+              <input type="text" class="form-control bg-transparent text-white border-secondary" [(ngModel)]="user()!.phone">
+            } @else {
+              <p class="h6">{{ user()?.phone }}</p>
+            }
+          </div>
+
+          <!-- Field: Email -->
+          <div class="col">
+            <label class="text-muted small">Email</label>
+            @if (isEditing()) {
+              <input type="email" class="form-control bg-transparent text-white border-secondary" [(ngModel)]="user()!.email">
+            } @else {
+              <p class="h6">{{ user()?.email }}</p>
+            }
+          </div>
+
+          <!-- Field: Role -->
+          <div class="col">
+            <label class="text-muted small">Role</label>
+              <p class="h6">{{ user()?.role }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

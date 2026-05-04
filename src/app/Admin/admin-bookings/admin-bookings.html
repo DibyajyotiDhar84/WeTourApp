@@ -1,0 +1,83 @@
+<div class="booking-container p-4">
+  <div class="header-section d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="title-font">Manage Bookings</h2>
+      <p class="text-muted accent-font">Review and process all WeTour reservations</p>
+    </div>
+    <div class="actions d-flex gap-2">
+      <div class="input-group search-box">
+        <span class="input-group-text bg-white border-end-0">
+          <span class="material-icons-round">search</span>
+        </span>
+        <input type="text" class="form-control border-start-0" placeholder="Search by ID or Name" 
+               [(ngModel)]="searchTerm" (input)="applyFilters()">
+      </div>
+      
+      <select class="form-select filter-dropdown" [(ngModel)]="selectedType" (change)="applyFilters()">
+        <option value="All">All Categories</option>
+        <option value="Flight">Flights</option>
+        <option value="Hotel">Hotels</option>
+        <option value="Tour">Tour Packages</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-card shadow-sm border-0 card">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Service Type</th>
+            <th>Details</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of filteredBookings">
+            <td class="fw-bold text-primary">{{ booking.id }}</td>
+            <td>{{ booking.user }}</td>
+            <td>
+              <span class="type-pill" [ngClass]="booking.type.toLowerCase()">
+                <span class="material-icons-round me-1">{{ 
+                  booking.type === 'Flight' ? 'flight' : 
+                  booking.type === 'Hotel' ? 'apartment' : 'terrain' 
+                }}</span>
+                {{ booking.type }}
+              </span>
+            </td>
+            <td class="text-muted small">{{ booking.item }}</td>
+            <td>{{ booking.date | date:'mediumDate' }}</td>
+            <td class="fw-bold">${{ booking.amount }}</td>
+            <td>
+              <div class="dropdown">
+                <button class="status-badge btn btn-sm dropdown-toggle" 
+                        [ngClass]="booking.status.toLowerCase()" 
+                        type="button" data-bs-toggle="dropdown">
+                  {{ booking.status }}
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="updateStatus(booking, 'Confirmed')">Confirm</a></li>
+                  <li><a class="dropdown-item" (click)="updateStatus(booking, 'Pending')">Pending</a></li>
+                  <li><a class="dropdown-item text-danger" (click)="updateStatus(booking, 'Cancelled')">Cancel</a></li>
+                </ul>
+              </div>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-icon text-info" title="View Details">
+                <span class="material-icons-round">visibility</span>
+              </button>
+              <button class="btn btn-icon text-danger" (click)="deleteBooking(booking.id)" title="Delete">
+                <span class="material-icons-round">delete_outline</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

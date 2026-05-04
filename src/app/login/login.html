@@ -1,0 +1,93 @@
+@if(isLoading()){
+    <app-loading-dash></app-loading-dash>
+
+}@else {
+
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <div class="col-md-5">
+    
+                    <div class="login-card p-4 p-md-5 shadow-lg">
+                        <div class="text-center mb-3">
+                            <div class="logo-wrapper">
+                                <img src="./assets/weTourLogo.png" alt="WeTour Logo" class="brand-logo">
+                            </div>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold brand-text">Welcome Back</h2>
+                            <p class="text-muted">Plan your next adventure with WeTour</p>
+                        </div>
+    
+                        <form [formGroup]="loginForm" (submit)="onSubmit()">
+    
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Email Address</label>
+                                <div class="input-group custom-input-group">
+                                    <span class="input-group-text bg-transparent border-end-0">
+                                        <span class="material-icons-round text-muted icon-sm">mail</span>
+                                    </span>
+                                    <input type="email" formControlName="email" class="form-control border-start-0"
+                                        placeholder="name@example.com">
+                                </div>
+                                <div class="text-danger small mt-1"
+                                    *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                                    Please enter a valid email.
+                                </div>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Password</label>
+                                <div class="input-group custom-input-group">
+                                    <span class="input-group-text bg-transparent border-end-0">
+                                        <span class="material-icons-round text-muted icon-sm">lock</span>
+                                    </span>
+                                    <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                                        class="form-control border-start-0 border-end-0" placeholder="••••••••">
+                                    <span class="input-group-text bg-transparent border-start-0 cursor-pointer"
+                                        (click)="showPassword = !showPassword">
+                                        <span class="material-icons-round text-muted icon-sm">{{showPassword ?
+                                            'visibility_off' : 'visibility'}}</span>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div class="mb-4">
+                                <label class="form-label small fw-bold">Security Check</label>
+                                <div class="captcha-box d-flex align-items-center justify-content-between p-2 mb-2">
+                                    <span class="captcha-text fw-bold">{{ generatedCaptcha }}</span>
+    
+                                    <button type="button" (click)="generateNewCaptcha()"
+                                        class="btn btn-sm btn-link p-0 text-decoration-none">
+                                        <span class="material-icons-round icon-sm brand-color">refresh</span>
+                                    </button>
+                                </div>
+    
+                                <input type="text" formControlName="captcha" class="form-control custom-input"
+                                    placeholder="Enter the code above"
+                                    [class.is-invalid]="loginForm.get('captcha')?.touched && loginForm.get('captcha')?.errors?.['captchaMismatch']">
+    
+                                <div class="text-danger small mt-1"
+                                    *ngIf="loginForm.get('captcha')?.touched && loginForm.get('captcha')?.errors?.['captchaMismatch']">
+                                    Captcha does not match. Please try again.
+                                </div>
+                            </div>
+    
+                            <button type="submit" [disabled]="loginForm.invalid"
+                                class="btn btn-login w-100 py-2 shadow-sm mb-3">
+                                Sign In
+                            </button>
+    
+                            <div class="text-center">
+                                <span class="text-muted small">Don't have an account? </span>
+                                <a [routerLink]="['/register']"
+                                    class="text-decoration-none fw-bold small brand-color">Create Account</a>
+                            </div>
+                        </form>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+}

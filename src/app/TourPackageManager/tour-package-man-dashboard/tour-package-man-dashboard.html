@@ -1,0 +1,54 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+<div class="admin-container bg-light">
+  <aside class="sidebar shadow-sm">
+    <div class="sidebar-brand d-flex align-items-center mb-4">
+      <div class="logo-box me-2">
+        <span class="material-icons-round logo-icon">local_mall</span>
+      </div>
+      <span class="brand-cursive">We</span><span class="brand-text">Tour</span>
+    </div>
+
+    <ul class="nav flex-column sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="stats" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <span class="material-icons-round">dashboard</span> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="createPackage" routerLinkActive="active-link">
+          <span class="material-icons-round">create</span> createPackage
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="myTours" routerLinkActive="active-link">
+          <span class="material-icons-round">tour</span> My Tours
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="transactions" routerLinkActive="active-link">
+          <span class="material-icons-round">account_balance_wallet</span> Transactions
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile" routerLinkActive="active-link">
+          <span class="material-icons-round">person</span> Profile
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer mt-auto">
+      <button class="nav-link text-danger logout-btn border-0 bg-transparent w-100 text-start" (click)="onLogout()">
+        <span class="material-icons-round">logout</span> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

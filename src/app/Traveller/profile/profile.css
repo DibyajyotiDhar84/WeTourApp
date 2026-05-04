@@ -1,0 +1,71 @@
+
+.title-font {
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  color: #edeaea;
+}
+
+.custom-card {
+  background: #cdcbcb;
+  border: 1px solid #333;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.text-muted {
+  color: #888 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: #17a2b8;
+  box-shadow: none;
+}
+
+.avatar-container img {
+  box-shadow: 0 0 20px rgba(23, 162, 184, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.avatar-container img:hover {
+  transform: scale(1.05);
+}
+
+.material-icons {
+  font-size: 18px;
+}
+
+/* Container to keep the shuffle button relative to the image */
+.avatar-wrapper {
+  width: 150px;
+  height: 150px;
+}
+
+/* The shuffle button floating on the bottom right of the avatar */
+.shuffle-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1a1a1a; /* Matches dark theme background */
+  transition: transform 0.3s ease, background-color 0.2s;
+}
+
+.shuffle-btn:hover {
+  transform: rotate(180deg);
+  background-color: #17a2b8;
+}
+
+.shuffle-btn .material-icons {
+  font-size: 20px;
+}
+
+/* Ensure the avatar image looks consistent */
+.avatar-wrapper img {
+  background-color: #2b2b2b;
+  padding: 4px;
+}
