@@ -1,4 +1,4 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -6,10 +6,14 @@
 <div class="admin-container bg-light">
   <aside class="sidebar shadow-sm">
     <div class="sidebar-brand d-flex align-items-center mb-4">
-      <div class="logo-box me-2">
-        <span class="material-icons-round logo-icon">apartment</span>
+      <div class="logo-container me-2">
+        <div class="logo-wrapper">
+          <img src="./assets/weTourLogo.png" alt="WeTour Logo" class="brand-logo">
+        </div>
       </div>
-      <span class="brand-cursive">We</span><span class="brand-text">Tour</span>
+      <div class="brand-text-wrapper shadow-text">
+        <span class="brand-cursive ">We</span><span class="brand-text  shadow-text">Tour</span>
+      </div>
     </div>
 
     <ul class="nav flex-column sidebar-nav">
@@ -20,12 +24,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="rooms" routerLinkActive="active-link">
-          <span class="material-icons-round">bed</span> Rooms
+          <span class="material-icons-round">bed</span> Hotels
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="bookings" routerLinkActive="active-link">
-          <span class="material-icons-round">book_online</span> Bookings
+        <a class="nav-link" routerLink="addHotel" routerLinkActive="active-link">
+          <span class="material-icons-round">edit</span> Add New Hotels
         </a>
       </li>
       <li class="nav-item">
@@ -55,4 +59,5 @@
   <main class="content-area">
     <router-outlet></router-outlet>
   </main>
-</div>
+</div> 
+
